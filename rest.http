@@ -1,0 +1,37 @@
+@baseurl = http://localhost:5000
+
+### Health Check
+GET {{baseurl}}/
+Accept: application/json
+
+### Get All Products
+GET {{baseurl}}/api/products
+Accept: application/json
+
+### Get Single Product
+GET {{baseurl}}/api/products/68fd62397849952c4fe1b218
+Accept: application/json
+
+### Create New Product
+POST {{baseurl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "New Product",
+  "price": 29.99,
+  "description": "This is a new product."
+}
+
+### Update Product
+PUT {{baseurl}}/api/products/6912a2daae9f1439ecc5f2c7
+Content-Type: application/json
+
+{
+  "name": "Updated Product",
+  "price": 39.99,
+  "description": "This is an updated product."
+}
+
+### Delete Product
+DELETE {{baseurl}}/api/products/6912a2daae9f1439ecc5f2c7
+Accept: application/json
