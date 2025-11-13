@@ -1,38 +1,17 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+body.dark-mode {
+    background-color: #121212;
+    color: white;
 }
 
-:root {
-  --bg: #f7f7f7;
-  --text-primary: #222;
-  --text-secondary: #555;
-  --card-bg: #fff;
-  --navbar-bg: #fff;
-  --navbar-text: #222;
+.dark-mode .card {
+    background-color: #1e1e1e;
+    color: white;
 }
 
-.dark {
-  --bg: #181a1b;
-  --text-primary: #f7f7f7;
-  --text-secondary: #bdbdbd;
-  --card-bg: #23272f;
-  --navbar-bg: #23272f;
-  --navbar-text: #f7f7f7;
+.dark-mode .navbar {
+    background-color: #1e1e1e !important;
 }
 
-body,
-#root {
-  min-height: 100vh;
-  background: var(--bg);
-  color: var(--text-primary);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: background 0.3s, color 0.3s;
-}
-
-.container {
-  background: none;
-  padding-top: 2rem;
-  min-height: 80vh;
+.dark-mode footer {
+    background-color: #1e1e1e;
 }

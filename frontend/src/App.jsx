@@ -1,37 +1,24 @@
-
 import './App.css'
-import Navbar from './components/Navbar.jsx'
+import Footer from './components/Foooter'
+import Navbar from './components/Navbar'
+import HomePage from './pages/HomePage'
 import { Route, Routes } from 'react-router-dom'
-import HomePage from './pages/HomePage.jsx'
-import CreateNewPage from './pages/CreateNewPage.jsx'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
-
-import React, { useEffect, useState } from 'react';
+import CreateNew from './pages/CreateNewPage'
 
 function App() {
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    if (dark) {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-    }
-  }, [dark]);
 
   return (
     <>
-      <Navbar onToggleTheme={() => setDark(d => !d)} />
+      <Navbar />
       <div className="container">
         <Routes>
-          <Route path='/' element={<HomePage />}></Route>
-          <Route path='/createnew' element={<CreateNewPage />}></Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/create" element={<CreateNew />} />
         </Routes>
       </div>
+      <Footer />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
