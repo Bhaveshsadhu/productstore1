@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { createProduct } from "../axios/productApi";
 
 const ProductForm = () => {
   const [validated, setValidated] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     const form = event.currentTarget;
     event.preventDefault();
 
@@ -13,13 +14,15 @@ const ProductForm = () => {
     } else {
       // Get form values (you can send to API here)
       const formData = {
-        name: form.productName.value,
+        name: form.name.value,
         price: form.price.value,
-        image: form.imageUrl.value,
+        imageUrl: form.imageUrl.value,
         description: form.description.value,
       };
+      console.log("Form Data:", formData);
+      const res = await createProduct(formData);
+      console.log("Product Submitted:", res.data);
 
-      console.log("Product Submitted:", formData);
       alert("Product submitted successfully!");
 
       form.reset();
@@ -44,7 +47,7 @@ const ProductForm = () => {
                 required
                 type="text"
                 placeholder="Enter product name"
-                name="productName"
+                name="name"
               />
               <Form.Control.Feedback type="invalid">
                 Please enter a product name.

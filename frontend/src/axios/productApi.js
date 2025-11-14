@@ -12,15 +12,27 @@ export const getProductById = async (id) => {
 
 // CREATE product
 export const createProduct = async (productData) => {
-    return await axiosClient.post("/products", productData); // POST /api/products
+    return await axiosClient.post("/products", productData, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }); // POST /api/products
 };
 
 // UPDATE product
 export const updateProduct = async (id, productData) => {
-    return await axiosClient.put(`/products/${id}`, productData); // PUT /api/products/:id
+    return await axiosClient.put(`/products/${id}`, productData, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }); // PUT /api/products/:id
 };
 
 // DELETE product
 export const deleteProduct = async (id) => {
-    return await axiosClient.delete(`/products/${id}`); // DELETE /api/products/:id
+    return await axiosClient.delete(`/products/${id}`, {
+        headers: {
+            "Accept": "application/json"
+        }
+    }); // DELETE /api/products/:id
 };

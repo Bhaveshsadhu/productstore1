@@ -14,7 +14,11 @@ const productSchema = new mongoose.Schema({
     description: {
         type: String,
         required: [true, 'Product description is required'],
-    }
+    },
+    imageUrl: {
+        type: String,
+        required: [true, 'Product image URL is required'],
+    },
 },
     {
         timestamps: true, // adds createdAt and updatedAt

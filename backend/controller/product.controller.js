@@ -30,8 +30,8 @@ export const getProductById = async (req, res) => {
 //Create a product
 export const createProduct = async (req, res) => {
     try {
-        const { name, price, description } = req.body;
-        const newProduct = new Product({ name, price, description });
+        const { name, price, description, imageUrl } = req.body;
+        const newProduct = new Product({ name, price, description, imageUrl });
         await newProduct.save();
         res.status(201).json({ success: true, message: "Product Added Successfully..", product: newProduct });
     } catch (error) {
