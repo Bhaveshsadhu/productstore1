@@ -1,7 +1,7 @@
 @baseurl = http://localhost:5000
 
 ### Health Check
-GET {{baseurl}}/
+GET {{baseurl}}/health
 Accept: application/json
 
 ### Get All Products

@@ -158,3 +158,30 @@ If you want, I can also generate:
 
 Just tell me!
 
+---
+
+## 🚀 Deploying on Render
+
+You can deploy the monorepo (Express API + Vite build) with a single Web Service on [Render](https://render.com):
+
+1. Push the latest code and select **`render.yaml`** when creating a new Blueprint deployment.
+2. Set the environment variable `MONGO_URI` to your MongoDB Atlas connection string (Render keeps it encrypted).
+3. Render will run `npm install && npm run build`, which installs the frontend packages and creates the Vite production build.
+4. The start command (`npm start`) launches `backend/server.js`, serves `frontend/dist`, and exposes the API routes on the same domain.
+
+If the React client needs to call an external API in the future, create a `.env` file inside `frontend/` with `VITE_API_URL=<https://your-api-url>`. Otherwise, it automatically points to the same origin which keeps CORS simple in production.
+
+---
+
+## 🧪 Run Entire App on `http://localhost:5000`
+
+Want the React UI and API on the same origin without running `npm run dev` in `frontend/`?  
+Build the client once and start the backend:
+
+```bash
+npm install
+npm run build          # creates frontend/dist
+NODE_ENV=development npm run dev   # or npm start
+```
+
+Whenever you change React code, rerun `npm run build`; the Express server automatically serves everything in `frontend/dist`, so navigating to `http://localhost:5000/` loads the built React app while the API stays under `/api/*`.
